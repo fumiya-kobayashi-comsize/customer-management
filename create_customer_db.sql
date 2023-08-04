@@ -70,8 +70,11 @@ INSERT INTO customer_db.m_user (user_id,password,user_name)
 /*初期データをINSERT（顧客マスタ）*/
 INSERT INTO customer_db.m_customer (customer_name,customer_name_kana,postal_code,address
     ,area_code,contact_person_name,contact_person_name_kana,contact_person_tel,user_id)
-    VALUES ('顧客田','こきゃくだ','1750082','東京都板橋区','A300','鈴木','すずき','08012345678','91011');
+    VALUES ('会社A','かいしやえー','1750082','東京都板橋区','A300','担当者A','たんんとうしやえー','08012345678','91011');
     
 INSERT INTO customer_db.m_customer (customer_name,customer_name_kana,postal_code,address
     ,area_code,contact_person_name,contact_person_name_kana,contact_person_tel,user_id)
-    VALUES ('顧客川','こきゃくがわ','1540012','東京都世田谷区','A200','田中','たなか','08056781234','5678');
+    VALUES ('会社B','かいしやびー','1540012','東京都世田谷区','A200','担当者B','たんとうしやびー','08056781234','5678');
+    
+/*テーブル削除*/
+DROP TABLE customer_db.m_customer;
