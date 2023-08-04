@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.CustomerBean"%>
+    pageEncoding="UTF-8" import="model.entity.CustomerBean, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,7 @@
 	<th>担当者名</th>
 	<th>担当者名(かな)</th>
 	<th>担当者電話番号</th>
+	<th>営業担当者情報</th>
 	</tr>
 
 	<%
@@ -36,15 +37,16 @@
 			<td><%=customerbean.getCustomerNameKana()%></td>
 			<td><%=customerbean.getPostalCode()%></td>
 			<td><%=customerbean.getAddress()%></td>
-			<td><%=customerbean.getAreaCode()%></td>
-			<td><%=customerbean.getContactParsonName()%></td>
+			<td><%=customerbean.getAreaName()%></td>
+			<td><%=customerbean.getContactPersonName()%></td>
 			<td><%=customerbean.getContactPersonNameKana()%></td>
 			<td><%=customerbean.getContactPersonTel()%></td>
+			<td><%=customerbean.getUserName()%></td>
 
 			<td>
-				<form action ="" method ="POST">
+				<form action ="custemer-detail-servlet" method ="POST">
 				<input type ="submit" value ="編集">
-				<input type ="hidden" name ="customerId" value = "<%=customerbean.getCustomerId()%>">
+				<input type ="hidden" name ="CustomerId" value = "<%=customerbean.getCustomerId()%>">
 				</form>
 			</td>
 
