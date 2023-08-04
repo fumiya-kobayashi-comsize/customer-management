@@ -1,154 +1,206 @@
 package model.entity;
 
+import java.sql.Timestamp;
+
 public class CustomerBean {
 
 	private int customerId;
 	private String customerName;
-	private String CustomerNameKana;
+	private String customerNameKana;
 	private String postalCode;
 	private String address;
 	private String areaCode;
-	private String contactParsonName;
+	private String contactPersonName;
 	private String contactPersonNameKana;
+	private String contactPersonTel;
 	private String userId;
 	private String areaName;
+	private Timestamp updateDatetime;
+
+	/**
+	 * DBから取得した値を保持しておく、DBに登録、更新する値を入れておくクラスです。
+	 * @author 此上
+	 */
 
 
 	/**
-	 * @return customerId
+	 * フィールドcustomerIdの値を返します。
+	 * @return 顧客ID
 	 */
 	public int getCustomerId() {
 		return customerId;
 	}
 	/**
-	 * @param customerId セットする customerId
+	 * フィールドcustomerIdの値を設定します。
+	 * @param customerId 顧客ID
 	 */
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
+
 	/**
-	 * @return customerName
+	 * フィールドcustomerNameの値を返します。
+	 * @return customerName 顧客名称
 	 */
 	public String getCustomerName() {
 		return customerName;
 	}
 	/**
-	 * @param customerName セットする customerName
+	 * フィールドcustomerNameの値を設定します。
+	 * @param customerName 顧客名称
 	 */
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+
 	/**
-	 * @return customerNameKana
+	 * フィールドcustomerNameKanaの値を返します。
+	 * @return customerNameKana 顧客名称かな
 	 */
 	public String getCustomerNameKana() {
-		return CustomerNameKana;
+		return customerNameKana;
 	}
 	/**
-	 * @param customerNameKana セットする customerNameKana
+	 * フィールドcustomerNameKanaの値を設定します。
+	 * @param customerNameKana 顧客名称かな
 	 */
 	public void setCustomerNameKana(String customerNameKana) {
-		CustomerNameKana = customerNameKana;
+		this.customerNameKana = customerNameKana;
 	}
+
 	/**
-	 * @return postalCode
+	 * フィールドpostalCodeの値を返します。
+	 * @return postalCode 郵便番号
 	 */
 	public String getPostalCode() {
 		return postalCode;
 	}
 	/**
-	 * @param postalCode セットする postalCode
+	 * フィールドpostalCodeの値を設定します。
+	 * @param postalCode 郵便番号
 	 */
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
 	/**
-	 * @return address
+	 * フィールドaddressの値を返します。
+	 * @return address 所在地
 	 */
 	public String getAddress() {
 		return address;
 	}
 	/**
-	 * @param address セットする address
+	 * フィールドaddressの値を設定します。
+	 * @param address 所在地
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	/**
-	 * @return areaCode
+	 * フィールドareaCodeの値を返します。
+	 * @return areaCode 地区コード
 	 */
 	public String getAreaCode() {
 		return areaCode;
 	}
 	/**
-	 * @param areaCode セットする areaCode
+	 * フィールドareaCodeの値を設定します。
+	 * @param areaCode 地区コード
 	 */
 	public void setAreaCode(String areaCode) {
 		this.areaCode = areaCode;
 	}
+
 	/**
-	 * @return contactParsonName
+	 * フィールドcontactPersonNameの値を返します。
+	 * @return contactPersonName 担当者名
 	 */
-	public String getContactParsonName() {
-		return contactParsonName;
+	public String getContactPersonName() {
+		return contactPersonName;
 	}
 	/**
-	 * @param contactParsonName セットする contactParsonName
+	 * フィールドcontactPersonNameの値を設定します。
+	 * @param contactPersonName 担当者名
 	 */
-	public void setContactParsonName(String contactParsonName) {
-		this.contactParsonName = contactParsonName;
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
 	}
+
 	/**
-	 * @return contactPersonNameKana
+	 * フィールドcontactPersonNameKanaの値を返します。
+	 * @return contactPersonNameKana 担当者名かな
 	 */
 	public String getContactPersonNameKana() {
 		return contactPersonNameKana;
 	}
 	/**
-	 * @param contactPersonNameKana セットする contactPersonNameKana
+	 * フィールドcontactPersonNameKanaの値を設定します。
+	 * @param contactPersonNameKana 担当者名かな
 	 */
 	public void setContactPersonNameKana(String contactPersonNameKana) {
 		this.contactPersonNameKana = contactPersonNameKana;
 	}
+
 	/**
-	 * @return contactPersonTel
+	 * フィールドcontactPersonTelの値を返します。
+	 * @return contactPersonTel 担当者電話番号
 	 */
 	public String getContactPersonTel() {
 		return contactPersonTel;
 	}
 
+	/**
+	 * フィールドcontactPersonTelの値を設定します。
+	 * @param contactPersonTel 担当者電話番号
+	 */
+	public void setContactPersonTel(String contactPersonTel) {
+		this.contactPersonTel = contactPersonTel;
+	}
 
 	/**
-	 * @return userId
+	 * フィールドuserIdの値を返します。
+	 * @return userId ユーザーID
 	 */
 	public String getUserId() {
 		return userId;
 	}
 	/**
-	 * @param userId セットする userId
+	 * フィールドuserIdの値を設定します。
+	 * @param userId ユーザーID
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	/**
-	 * @return areaName
+	 * フィールドareaNameの値を返します。
+	 * @return areaName 地区名
 	 */
 	public String getAreaName() {
 		return areaName;
 	}
 	/**
-	 * @param areaName セットする areaName
+	 * フィールドareaNameの値を設定します。
+	 * @param areaName 地区名
 	 */
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
 	}
+
 	/**
-	 * @param contactPersonTel セットする contactPersonTel
+	 * フィールドupdateDatetimeの値を返します。
+	 * @return updateDatetime 更新日時
 	 */
-	public void setContactPersonTel(String contactPersonTel) {
-		this.contactPersonTel = contactPersonTel;
+	public Timestamp getUpdateDatetime() {
+		return updateDatetime;
 	}
-	private String contactPersonTel;
-
-
+	/**
+	 * フィールドupdateDatetimeの値を設定します。
+	 * @param updateDatetime 更新日時
+	 */
+	public void setUpdateDatetime(Timestamp updateDatetime) {
+		this.updateDatetime = updateDatetime;
+	}
 }
