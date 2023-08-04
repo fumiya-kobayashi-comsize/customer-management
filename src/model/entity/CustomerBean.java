@@ -18,7 +18,7 @@ public class CustomerBean {
 	private String contactPersonName;
 	private String contactPersonNameKana;
 	private String contactPersonTel;
-	private String userId;
+	private String userName;
 	private String areaName;
 	private Timestamp updateDatetime;
 
@@ -160,18 +160,18 @@ public class CustomerBean {
 	}
 
 	/**
-	 * フィールドuserIdの値を返します。
-	 * @return userId ユーザーID
+	 * フィールドuserNameの値を返します。
+	 * @return userName ユーザーName
 	 */
-	public String getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
 	/**
-	 * フィールドuserIdの値を設定します。
-	 * @param userId ユーザーID
+	 * フィールドuserNameの値を設定します。
+	 * @param userName ユーザーName
 	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**
