@@ -10,6 +10,10 @@ public class CustomerBean {
 	private String areaCode;
 	private String contactParsonName;
 	private String contactPersonNameKana;
+	private String userId;
+	private String areaName;
+
+
 	/**
 	 * @return customerId
 	 */
@@ -111,6 +115,32 @@ public class CustomerBean {
 	 */
 	public String getContactPersonTel() {
 		return contactPersonTel;
+	}
+
+
+	/**
+	 * @return userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+	/**
+	 * @param userId セットする userId
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	/**
+	 * @return areaName
+	 */
+	public String getAreaName() {
+		return areaName;
+	}
+	/**
+	 * @param areaName セットする areaName
+	 */
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 	/**
 	 * @param contactPersonTel セットする contactPersonTel
