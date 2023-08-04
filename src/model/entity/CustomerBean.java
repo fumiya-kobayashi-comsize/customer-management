@@ -2,6 +2,11 @@ package model.entity;
 
 import java.sql.Timestamp;
 
+/**
+ * DBから取得した値を保持しておく、DBに登録、更新する値を入れておくクラスです。
+ * @author 此上
+ */
+
 public class CustomerBean {
 
 	private int customerId;
@@ -16,11 +21,6 @@ public class CustomerBean {
 	private String userId;
 	private String areaName;
 	private Timestamp updateDatetime;
-
-	/**
-	 * DBから取得した値を保持しておく、DBに登録、更新する値を入れておくクラスです。
-	 * @author 此上
-	 */
 
 
 	/**
