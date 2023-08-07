@@ -54,7 +54,7 @@
 	</tr>
 	</table><br>
 
-	<form action ="" method ="POST">
+	<form action ="menu.jsp" method ="POST">
 		<div align="center">
 		<input type ="submit" value ="メニュー画面へ">
 		</div>
