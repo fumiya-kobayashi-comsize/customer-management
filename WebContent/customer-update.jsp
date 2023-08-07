@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.CustomerBean"%>
+    pageEncoding="UTF-8" import="model.entity.CustomerBean, model.entity.UserBean, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +19,14 @@
 
 <%CustomerBean detailbean = (CustomerBean)session.getAttribute("detailbean"); %>
 
-	<form action="" method="POST" style="text-align: center">
+	<form action="CustomerUpdateServlet" method="POST" style="text-align: center">
 	<table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客ID：<br></td>
-			<td><%=detailbean.getCustomerId() %><br></td>
+			<td>
+				<%=detailbean.getCustomerId() %>
+				<input type="hidden" name="customerId" value=<%=detailbean.getCustomerId()%>><br>
+			</td>
 		</tr>
 		<tr>
 			<td>顧客名称：<br></td>
@@ -43,7 +46,23 @@
 		</tr>
 		<tr>
 			<td>地区情報：<br></td>
-			<td><input type="text" name="areaCode" value=<%=detailbean.getAreaName()%> size="50"><br></td>
+			<td>
+			<%
+				List<CustomerBean>areaList
+					= (List<CustomerBean>)session.getAttribute("areaList");
+			%>
+
+			<select name="area">
+			<%
+				for(CustomerBean areabean : areaList){
+			%>
+			<option value="<%=areabean.getAreaCode()%>,<%=areabean.getAreaName()%>"><%=areabean.getAreaName()%>
+			</option>
+			<%
+				}
+			%>
+			</select>
+			</td>
 		</tr>
 		<tr>
 			<td>担当者名：<br></td>
@@ -59,8 +78,22 @@
 		</tr>
 		<tr>
 			<td>営業担当者情報：<br></td>
-			<td><input type="text" name="userId" value=<%=detailbean.getUserName()%> size="50"><br></td>
-		</tr>
+			<td>
+			<%
+				List<UserBean>userList
+					= (List<UserBean>)session.getAttribute("userList");
+			%>
+			<select name="user">
+			<%
+				for(UserBean userbean : userList){
+			%>
+			<option value="<%=userbean.getUserId()%>,<%=userbean.getUserName()%>"><%=userbean.getUserName()%>
+			</option>
+			<%
+				}
+			%>
+			</select>
+			</td>
 	</table>
 	<br>
 	<input type="submit" value="編集する"><input type="reset" value="クリア">
