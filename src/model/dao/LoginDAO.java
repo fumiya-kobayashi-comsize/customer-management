@@ -27,7 +27,7 @@ public class LoginDAO {
 	public boolean loginCheck(String userId, String password)
 			throws ClassNotFoundException, SQLException {
 
-		String sql = "SELECT * FROM m_user WHERE userId = ? AND password = ?";
+		String sql = "SELECT * FROM m_user WHERE user_id = ? AND password = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
@@ -44,6 +44,7 @@ public class LoginDAO {
 			if(res.next()) {
 				return true;
 			}
+
 		}
 		return false;
 	}
