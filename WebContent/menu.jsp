@@ -15,7 +15,7 @@
 			<input type="submit" value="顧客情報登録">
 		</form>
 		<br>
-		<form action="CustomerUpdateServlet" method="GET">
+		<form action="customer-list-servlet" method="GET">
 			<input type="submit" value="顧客情報一覧">
 		</form>
 		<br>
