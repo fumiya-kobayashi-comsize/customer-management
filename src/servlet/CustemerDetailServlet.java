@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.dao.DetailDAO;
 import model.entity.CustomerBean;
+import model.entity.UserBean;
 
 /**
  * 編集する顧客情報を表示
@@ -44,14 +46,20 @@ public class CustemerDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DetailDAO dao = new DetailDAO();
+		List<UserBean> userList = null;
+		List<CustomerBean> areaList = null;
 
 		try {
 
 			CustomerBean detailbean = dao.detail(request.getParameter("CustomerId"));
-
 			HttpSession session =request.getSession();
 			session.setAttribute("detailbean", detailbean);
 
+			userList = dao.userList();
+			session.setAttribute("userList", userList);
+
+			areaList = dao.areaList();
+			session.setAttribute("areaList", areaList);
 
 		} catch (SQLException | ClassNotFoundException e) {
 
