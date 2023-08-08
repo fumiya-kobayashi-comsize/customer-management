@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.entity.CustomerBean, model.entity.UserBean, java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,22 @@
 		</tr>
 		<tr>
 			<td>地区情報：<br></td>
-			<td><input type="text" name="areaCode" size="50"><br></td>
+			<td>
+			<%
+				List<CustomerBean>areaList
+					= (List<CustomerBean>)session.getAttribute("areaList");
+			%>
+			<select name="area">
+			<%
+				for(CustomerBean areabean : areaList){
+			%>
+			<option value="<%=areabean.getAreaCode()%>,<%=areabean.getAreaName()%>"><%=areabean.getAreaName()%>
+			</option>
+			<%
+				}
+			%>
+			</select>
+			<br></td>
 		</tr>
 		<tr>
 			<td>担当者名：<br></td>
@@ -52,7 +67,22 @@
 		</tr>
 		<tr>
 			<td>営業担当者情報：<br></td>
-			<td><input type="text" name="userId" size="50"><br></td>
+			<td>
+			<%
+				List<UserBean>userList
+					= (List<UserBean>)session.getAttribute("userList");
+			%>
+			<select name="user">
+			<%
+				for(UserBean userbean : userList){
+			%>
+			<option value="<%=userbean.getUserId()%>,<%=userbean.getUserName()%>"><%=userbean.getUserName()%>
+			</option>
+			<%
+				}
+			%>
+			</select><br>
+			</td>
 		</tr>
 	</table>
 	<br>
