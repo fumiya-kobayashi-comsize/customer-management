@@ -23,7 +23,5 @@
 			<input type="submit" value="ログアウト">
 		</form>
 	</div>
-
-
 </body>
 </html>
