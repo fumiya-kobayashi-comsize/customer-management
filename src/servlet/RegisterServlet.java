@@ -2,7 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.DetailDAO;
 import model.dao.RegisterDAO;
 import model.entity.CustomerBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -37,8 +41,28 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		DetailDAO ditailDao = new DetailDAO();
+		List<UserBean> userList = null;
+		List<CustomerBean> areaList = null;
+
+		try {
+
+			HttpSession session =request.getSession();
+			userList = ditailDao.userList();
+			session.setAttribute("userList", userList);
+
+			areaList = ditailDao.areaList();
+			session.setAttribute("areaList", areaList);
+
+		} catch (SQLException | ClassNotFoundException e) {
+
+			e.printStackTrace();
+
+		}
+
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -51,27 +75,29 @@ public class RegisterServlet extends HttpServlet {
 		// DAOのインスタンス化
 		RegisterDAO registerDao = new RegisterDAO();
 		// Beanのインスタンス化
-		CustomerBean customerBean = new CustomerBean();
+		CustomerBean registerBean = new CustomerBean();
 
 		//入力された顧客情報をbeanにセット
 		String[] arrayArea = request.getParameter("area").split(",");
 		String[] arrayUser = request.getParameter("user").split(",");
 
-		customerBean.setCustomerName(request.getParameter("customerName"));
-		customerBean.setCustomerNameKana(request.getParameter("customerNameKana"));
-		customerBean.setPostalCode(request.getParameter("postalCode"));
-		customerBean.setAreaCode(arrayArea[0]);
-		customerBean.setAreaName(arrayArea[1]);
-		customerBean.setContactPersonName(request.getParameter("contactPersonName"));
-		customerBean.setContactPersonNameKana(request.getParameter("contactPersonNameKana"));
-		customerBean.setContactPersonTel(request.getParameter("contactPersonTel"));
-		customerBean.setUserId(arrayUser[0]);
-		customerBean.setUserId(arrayUser[1]);
+		registerBean.setCustomerName(request.getParameter("customerName"));
+		registerBean.setCustomerNameKana(request.getParameter("customerNameKana"));
+		registerBean.setPostalCode(request.getParameter("postalCode"));
+		registerBean.setAddress(request.getParameter("address"));
+		registerBean.setAreaCode(arrayArea[0]);
+		registerBean.setAreaName(arrayArea[1]);
+		registerBean.setContactPersonName(request.getParameter("contactPersonName"));
+		registerBean.setContactPersonNameKana(request.getParameter("contactPersonNameKana"));
+		registerBean.setContactPersonTel(request.getParameter("contactPersonTel"));
+		registerBean.setUserId(arrayUser[0]);
+		registerBean.setUserName(arrayUser[1]);
 
 		int insertCount = 0;//処理件数
 
 		try {
-			insertCount = registerDao.insert(customerBean);//登録処理
+			insertCount = registerDao.insert(registerBean);//登録処理
+			registerBean.setCustomerId(registerDao.selectId(registerBean.getCustomerName()));
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -79,7 +105,7 @@ public class RegisterServlet extends HttpServlet {
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 		// 顧客情報の登録情報をセッションに設定
-		session.setAttribute("registerBean", customerBean);
+		session.setAttribute("registerBean", registerBean);
 
 
 		// 遷移先画面の分岐

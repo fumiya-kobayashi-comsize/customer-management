@@ -60,7 +60,9 @@
 			<td>営業担当者情報：<br></td>
 			<td><%=registerBean.getUserName()%><br></td>
 		</tr>
-	</table>
-
+	</table><br>
+	<form action="menu.jsp" method="POST" style="text-align: center">
+			<input type="submit" value="メニュー画面へ">
+	</form>
 </body>
 </html>

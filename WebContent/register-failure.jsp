@@ -61,6 +61,9 @@
 			<td><%=registerBean.getUserName()%><br></td>
 		</tr>
 	</table>
+	<form action="menu.jsp" method="POST" style="text-align: center">
+			<input type="submit" value="メニュー画面へ">
+	</form>
 
 </body>
 </html>

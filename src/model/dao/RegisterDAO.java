@@ -2,6 +2,7 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.entity.CustomerBean;
@@ -48,5 +49,24 @@ public class RegisterDAO {
 			insertCount = pstmt.executeUpdate();
 		}
 		return insertCount;
+	}
+
+	public int selectId(String customerName) throws SQLException, ClassNotFoundException {
+		String sql = "SELECT customer_id FROM m_customer WHERE customer_name = ?";
+		int customerId = 0;
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
+			// プレースホルダへの値の設定
+			pstmt.setString(1, customerName);
+
+			// SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				customerId  = res.getInt("customer_id");
+			}
+		}
+		return customerId;
 	}
 }
