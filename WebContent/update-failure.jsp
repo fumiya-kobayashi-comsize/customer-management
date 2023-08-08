@@ -16,7 +16,7 @@
 <h1 align="center">顧客情報編集エラー画面</h1><br>
 	<hr>
 <h1 align="center">顧客情報を編集できませんでした。</h1>
-<%CustomerBean updatebean = (CustomerBean)session.getAttribute("updatebean"); %>
+<%CustomerBean updatebean = (CustomerBean)session.getAttribute("updateBean"); %>
 <table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客ID：</td>
@@ -59,6 +59,12 @@
 			<td><%=updatebean.getUserName()%><br></td>
 		</tr>
 	</table>
+
+	<div align="center">
+	<form action ="customer-update.jsp" method ="POST">
+		<input type ="submit" value ="編集画面に戻る">
+	</form>
+	</div>
 
 </body>
 </html>

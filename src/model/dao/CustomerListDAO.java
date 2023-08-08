@@ -10,13 +10,14 @@ import java.util.List;
 import model.entity.CustomerBean;
 
 /**
- * m_customerテーブルのDAOです。
+ * m_customer、m_area、m_userテーブルのDAOです。
  * @author 竹内
  */
 
 public class CustomerListDAO {
 	/**
 	 * すべての顧客情報のリストを返します。
+	 * @param なし
 	 * @return 顧客情報のリスト
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
@@ -34,7 +35,7 @@ public class CustomerListDAO {
 				+ " FROM m_customer t1 JOIN m_area t2 ON t1.area_code = t2.area_code "
 				+ " JOIN m_user t3 ON t1.user_id = t3.user_id";
 
-		//DB接続
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet res = pstmt.executeQuery()) {
@@ -42,7 +43,10 @@ public class CustomerListDAO {
 			//結果の操作
 			while (res.next()) {
 
+				//beanインスタンス化
 				CustomerBean customerbean = new CustomerBean();
+
+				//beanに値をセット
 				customerbean.setCustomerId(res.getInt("customer_id"));
 				customerbean.setCustomerName(res.getString("customer_name"));
 				customerbean.setCustomerNameKana(res.getString("customer_name_kana"));

@@ -16,7 +16,8 @@ import model.entity.UserBean;
 public class DetailDAO {
 	/**
 	 * 編集する顧客情報を返します。
-	 * @return 顧客情報
+	 * @param CustomerId
+	 * @return そのCustomerIdの顧客情報
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
@@ -32,16 +33,19 @@ public class DetailDAO {
 
 		CustomerBean detailbean = new CustomerBean();
 
-		//DB接続
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				) {
 
+			// プレースホルダへの値の設定
 			pstmt.setString(1, CustomerId);
 			ResultSet res = pstmt.executeQuery();
 
 			//結果の操作
 			if(res.next()) {
+
+				//beanに値をセット
 				detailbean.setCustomerId(res.getInt("customer_id"));
 				detailbean.setCustomerName(res.getString("customer_name"));
 				detailbean.setCustomerNameKana(res.getString("customer_name_kana"));;
@@ -60,6 +64,13 @@ public class DetailDAO {
 		return detailbean;
 	}
 
+	/**
+	 * ユーザーリストを返します。
+	 * @param なし
+	 * @return user_id、user_nameのリスト
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public List<UserBean> userList()
 			throws SQLException, ClassNotFoundException{
 
@@ -67,13 +78,18 @@ public class DetailDAO {
 
 		String sql = "SELECT user_id, user_name FROM m_user";
 
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet res = pstmt.executeQuery()) {
 
+			//結果の操作
 			while (res.next()) {
 
+				//beanのインスタンス化
 				UserBean userbean = new UserBean();
+
+				//beanに値をセット
 				userbean.setUserId(res.getString("user_id"));
 				userbean.setUserName(res.getString("user_name"));
 
@@ -83,6 +99,13 @@ public class DetailDAO {
 		return userList;
 	}
 
+	/**
+	 * エリアリストを返します。
+	 * @param なし
+	 * @return area_code、area_nameのリスト
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public List<CustomerBean> areaList()
 			throws SQLException, ClassNotFoundException{
 
@@ -90,13 +113,18 @@ public class DetailDAO {
 
 		String sql = "SELECT area_code, area_name FROM m_area";
 
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet res = pstmt.executeQuery()) {
 
+			//結果の操作
 			while (res.next()) {
 
+				//beanのインスタンス化
 				CustomerBean areabean = new CustomerBean();
+
+				//beanに値をセット
 				areabean.setAreaCode(res.getString("area_code"));
 				areabean.setAreaName(res.getString("area_name"));
 

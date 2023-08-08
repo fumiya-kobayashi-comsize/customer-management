@@ -16,7 +16,7 @@
 <h1 align="center">顧客情報編集完了画面</h1><br>
 	<hr>
 <h1 align="center">顧客情報を編集しました。</h1>
-<%CustomerBean updatebean = (CustomerBean)session.getAttribute("updatebean"); %>
+<%CustomerBean updatebean = (CustomerBean)session.getAttribute("updateBean"); %>
 <table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客ID：<br></td>
@@ -59,6 +59,13 @@
 			<td><%=updatebean.getUserName()%><br></td>
 		</tr>
 	</table>
+
+	<div align="center">
+	<form action ="menu.jsp" method ="POST">
+		<input type ="submit" value ="メニュー画面へ">
+	</form>
+	</div>
+
 
 </body>
 </html>

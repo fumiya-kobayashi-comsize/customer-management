@@ -51,13 +51,18 @@ public class CustemerDetailServlet extends HttpServlet {
 
 		try {
 
+			//customerIdを取得
 			CustomerBean detailbean = dao.detail(request.getParameter("CustomerId"));
+
+			//編集する顧客情報をセッションに入れる
 			HttpSession session =request.getSession();
 			session.setAttribute("detailbean", detailbean);
 
+			//ユーザーID、ユーザーNameのリストを取得
 			userList = dao.userList();
 			session.setAttribute("userList", userList);
 
+			//area_code、area_nameのリストを取得
 			areaList = dao.areaList();
 			session.setAttribute("areaList", areaList);
 
