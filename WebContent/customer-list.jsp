@@ -49,6 +49,12 @@
 				<input type ="hidden" name ="CustomerId" value = "<%=customerbean.getCustomerId()%>">
 				</form>
 			</td>
+			<td>
+				<form action ="CustomerDeleteServlet" method ="POST">
+				<input type ="submit" value ="削除">
+				<input type ="hidden" name ="CustomerId" value = "<%=customerbean.getCustomerId()%>">
+				</form>
+			</td>
 
 		<%}%>
 	</tr>
