@@ -42,6 +42,8 @@ public class CustomerUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		int count = 0;
 
 		UpdateDAO updatedao = new UpdateDAO();
@@ -57,15 +59,13 @@ public class CustomerUpdateServlet extends HttpServlet {
 		updateBean.setCustomerNameKana(request.getParameter("customerNameKana"));
 		updateBean.setPostalCode(request.getParameter("postalCode"));
 		updateBean.setAddress(request.getParameter("address"));
-		updateBean.setAreaCode(userArray[0]);
-		updateBean.setAreaName(userArray[1]);
+		updateBean.setAreaCode(areaArray[0]);
+		updateBean.setAreaName(areaArray[1]);
 		updateBean.setContactPersonName(request.getParameter("contactPersonName"));
 		updateBean.setContactPersonNameKana(request.getParameter("contactPersonNameKana"));
 		updateBean.setContactPersonTel(request.getParameter("contactPersonTel"));
-		updateBean.setUserId(areaArray[0]);
-		updateBean.setUserName(areaArray[1]);
-
-		session.setAttribute("updateBean",updateBean);
+		updateBean.setUserId(userArray[0]);
+		updateBean.setUserName(userArray[1]);
 
 		try {
 			count = updatedao.update(updateBean);
@@ -76,6 +76,8 @@ public class CustomerUpdateServlet extends HttpServlet {
 			e.printStackTrace();
 
 		}
+
+		session.setAttribute("updateBean",updateBean);
 
 		if (count > 0) {
 
