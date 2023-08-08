@@ -98,5 +98,12 @@
 	<br>
 	<input type="submit" value="編集する"><input type="reset" value="クリア">
 	</form>
+
+	<div align="center">
+	<form action ="customer-list.jsp" method ="POST">
+		<input type ="submit" value ="一覧に戻る">
+	</form>
+	</div>
+
 </body>
 </html>
