@@ -15,7 +15,8 @@ import model.dao.UpdateDAO;
 import model.entity.CustomerBean;
 
 /**
- * Servlet implementation class CustomerUpdateServlet
+ * 顧客情報の編集を行う
+ * @author 竹内
  */
 @WebServlet("/CustomerUpdateServlet")
 public class CustomerUpdateServlet extends HttpServlet {
@@ -42,18 +43,21 @@ public class CustomerUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// リクエストのエンコーディング方式を指定
 		request.setCharacterEncoding("UTF-8");
 
+		//処理件数
 		int count = 0;
 
 		UpdateDAO updatedao = new UpdateDAO();
 		CustomerBean updateBean = new CustomerBean();
+		HttpSession session = request.getSession();
 
+		// 選択されたカテゴリとコードを取得し、カンマ区切りで配列に分割
 		String[] userArray = request.getParameter("user").split(",");
 		String[] areaArray = request.getParameter("area").split(",");
 
-		HttpSession session = request.getSession();
-
+		// 変更情報をbeanにセット
 		updateBean.setCustomerId(Integer.parseInt(request.getParameter("customerId")));
 		updateBean.setCustomerName(request.getParameter("customerName"));
 		updateBean.setCustomerNameKana(request.getParameter("customerNameKana"));
@@ -77,8 +81,10 @@ public class CustomerUpdateServlet extends HttpServlet {
 
 		}
 
+		//beanをセッションに入れる
 		session.setAttribute("updateBean",updateBean);
 
+		//処理件数によって結果を分岐
 		if (count > 0) {
 
 			RequestDispatcher rd = request.getRequestDispatcher("update-success.jsp");
