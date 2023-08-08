@@ -6,9 +6,20 @@ import java.sql.SQLException;
 
 import model.entity.CustomerBean;
 
-
+/**
+ * m_customerテーブルのDAOです。
+ * @author 竹内
+ */
 
 public class UpdateDAO {
+	/**
+	 * updateした処理件数を返します。
+	 * @param 変更する情報（updateBean）
+	 * @return 処理件数
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+
 	public int update(CustomerBean updateBean)
 			throws SQLException, ClassNotFoundException {
 
@@ -18,11 +29,14 @@ public class UpdateDAO {
 				+ " contact_person_name_kana =?, contact_person_tel =?, user_id =? "
 				+ " WHERE customer_id =?";
 
+		//処理件数
 		int count = 0;
 
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
+			// プレースホルダへの値の設定
 			pstmt.setString(1, updateBean.getCustomerName());
 			pstmt.setString(2, updateBean.getCustomerNameKana());
 			pstmt.setString(3, updateBean.getPostalCode());
