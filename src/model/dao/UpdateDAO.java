@@ -13,10 +13,10 @@ public class UpdateDAO {
 			throws SQLException, ClassNotFoundException {
 
 		String sql = "UPDATE m_customer SET customer_name =?, "
-				+ "customer_name_kana =?, postal_code =? "
-				+ "address =?, area_code =?, contact_person_name =?"
-				+ "contact_person_name_kana =?, contact_person_tel =?, user_id =?"
-				+ "WHERE customer_id =?";
+				+ " customer_name_kana =?, postal_code =?, "
+				+ " address =?, area_code =?, contact_person_name =?, "
+				+ " contact_person_name_kana =?, contact_person_tel =?, user_id =? "
+				+ " WHERE customer_id =?";
 
 		int count = 0;
 
@@ -30,8 +30,9 @@ public class UpdateDAO {
 			pstmt.setString(5, updateBean.getAreaCode());
 			pstmt.setString(6, updateBean.getContactPersonName());
 			pstmt.setString(7, updateBean.getContactPersonNameKana());
-			pstmt.setString(8, updateBean.getUserId());
-			pstmt.setInt(9,updateBean.getCustomerId());
+			pstmt.setString(8, updateBean.getContactPersonTel());
+			pstmt.setString(9, updateBean.getUserId());
+			pstmt.setInt(10,updateBean.getCustomerId());
 
 			count = pstmt.executeUpdate();
 		}
