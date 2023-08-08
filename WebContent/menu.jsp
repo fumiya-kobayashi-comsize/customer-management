@@ -11,7 +11,7 @@
 	<hr>
 
 	<div align="center">
-		<form action="register.jsp" method="POST">
+		<form action="RegisterServlet" method="GET">
 			<input type="submit" value="顧客情報登録">
 		</form>
 		<br>
