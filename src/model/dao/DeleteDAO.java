@@ -12,8 +12,8 @@ import java.sql.SQLException;
 public class DeleteDAO {
 
 /**
- * 削除する顧客情報を返します。
- * @return 顧客情報
+ * 顧客情報を削除するモデルクラスです。
+ * @return 処理件数
  * @throws SQLException
  * @throws ClassNotFoundException
 */
