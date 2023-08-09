@@ -6,13 +6,21 @@
 <meta charset="UTF-8">
 <title>削除成功画面</title>
 </head>
+
+<style>
+.table{
+    margin: auto;
+    width: 540px;
+}
+</style>
+
 <body>
 
 <h1 align="center">顧客情報-削除確認画面</h1>
 	<hr>
 
 	<%
-		CustomerBean customerResult = (CustomerBean) session.getAttribute("detailbean");
+		CustomerBean customerResult = (CustomerBean) session.getAttribute("deletebean");
 		int processingNumber = (Integer) request.getAttribute("processingNumber");
 		if (processingNumber > 0) {
 	%>
@@ -21,7 +29,7 @@
 	<br>
 	<br>
 
-	<table>
+	<table border="1" class="table" style="text-align: left">
 			<tr>
 				<th>顧客ID</th>
 				<td><%=customerResult.getCustomerId()%></td>
