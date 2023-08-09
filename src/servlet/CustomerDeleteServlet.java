@@ -9,11 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.DeleteDAO;
+import model.dao.DetailDAO;
+import model.entity.CustomerBean;
 
 /**
- * 削除する顧客情報を表示
+ * 削除処理をするコントロール
  * @author 吉田
  */
 /**
@@ -49,16 +52,30 @@ public class CustomerDeleteServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 
 			DeleteDAO dao = new DeleteDAO();
+			DetailDAO detailDao = new DetailDAO();
+			CustomerBean customerBean = new CustomerBean();
+
 
 			int processingNumber = 0; //処理件数
 			try {
+
+					//customerIdを取得
+					 customerBean = detailDao.detail(request.getParameter("CustomerId"));
+
 					// 削除処理
-					processingNumber = dao.deleteCustmor(Integer.parseInt(request.getParameter("CustomerId")));
+						processingNumber = dao.deleteCustmor(Integer.parseInt(request.getParameter("CustomerId")));
+
 				} catch (SQLException | ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 				// 処理件数をリクエストスコープに設定
 				request.setAttribute("processingNumber", processingNumber);
+
+				//削除する顧客情報をセッションに設定ｐ
+				HttpSession session =request.getSession();
+				session.setAttribute("deletebean", customerBean);
+
+
 				// 削除結果画面に遷移
 
 				if (processingNumber == 0){
@@ -67,6 +84,7 @@ public class CustomerDeleteServlet extends HttpServlet {
 				}else{
 					RequestDispatcher rd = request.getRequestDispatcher("delete-success.jsp");
 					rd.forward(request, response);
+
 
 				}
 
