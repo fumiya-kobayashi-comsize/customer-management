@@ -6,6 +6,14 @@
 <meta charset="UTF-8">
 <title>削除失敗画面</title>
 </head>
+
+<style>
+.table{
+    margin: auto;
+    width: 540px;
+}
+</style>
+
 <body>
 
 <h1 align="center">顧客情報-削除確認画面</h1>
@@ -23,7 +31,7 @@
 
 	<br>
 	<br>
-	<table>
+	<table border="1" class="table" style="text-align: left">
 			<tr>
 				<th>顧客ID</th>
 				<td><%=customerResult.getCustomerId()%></td>
