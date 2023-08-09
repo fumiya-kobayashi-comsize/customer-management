@@ -49,10 +49,10 @@ public class RegisterServlet extends HttpServlet {
 
 			HttpSession session =request.getSession();
 			userList = ditailDao.userList();
-			session.setAttribute("userList", userList);
+			session.setAttribute("registerUserList", userList);
 
 			areaList = ditailDao.areaList();
-			session.setAttribute("areaList", areaList);
+			session.setAttribute("registerAreaList", areaList);
 
 		} catch (SQLException | ClassNotFoundException e) {
 

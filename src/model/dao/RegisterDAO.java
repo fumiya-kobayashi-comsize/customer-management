@@ -8,11 +8,20 @@ import java.sql.SQLException;
 import model.entity.CustomerBean;
 
 /**
- * 顧客情報の登録処理を行うモデルクラスです。
+ * m_customerテーブルの顧客情報を検索するDAOクラス
  * @author 此上
  */
 
 public class RegisterDAO {
+
+	/**
+	 * insertした処理件数を返します。
+	 * @param 変更する情報（registerBean）
+	 * @return 処理件数
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+
 	public int insert(CustomerBean customerBean)
 			throws SQLException, ClassNotFoundException {
 
@@ -50,6 +59,13 @@ public class RegisterDAO {
 		}
 		return insertCount;
 	}
+
+	/**
+	 * selectした顧客情報を返します。
+	 * @return 顧客情報
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 
 	public int selectId(String customerName) throws SQLException, ClassNotFoundException {
 		String sql = "SELECT customer_id FROM m_customer WHERE customer_name = ?";

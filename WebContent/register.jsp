@@ -39,7 +39,7 @@
 			<td>
 			<%
 				List<CustomerBean>areaList
-					= (List<CustomerBean>)session.getAttribute("areaList");
+					= (List<CustomerBean>)session.getAttribute("registerAreaList");
 			%>
 			<select name="area">
 			<%
@@ -70,7 +70,7 @@
 			<td>
 			<%
 				List<UserBean>userList
-					= (List<UserBean>)session.getAttribute("userList");
+					= (List<UserBean>)session.getAttribute("registerUserList");
 			%>
 			<select name="user">
 			<%
