@@ -41,12 +41,14 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//DAO生成
 		DetailDAO ditailDao = new DetailDAO();
+		//リスト作成
 		List<UserBean> userList = null;
 		List<CustomerBean> areaList = null;
 
 		try {
-
+			//m_userテーブルとm_areaテーブルのリストをセッションにセット
 			HttpSession session =request.getSession();
 			userList = ditailDao.userList();
 			session.setAttribute("registerUserList", userList);
