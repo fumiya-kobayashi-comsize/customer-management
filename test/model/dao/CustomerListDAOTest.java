@@ -13,6 +13,10 @@ import org.junit.jupiter.api.Test;
 
 import model.entity.CustomerBean;
 
+/**
+ * CustomerListDAOのTestクラスです。
+ * @author 竹内
+ */
 class CustomerListDAOTest {
 
 	@Test
