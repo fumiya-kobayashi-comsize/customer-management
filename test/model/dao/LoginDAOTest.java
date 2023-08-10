@@ -6,6 +6,12 @@ import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * LoginDAOのTestクラスです。
+ * @author 吉田
+ */
+
+
 class LoginDAOTest {
 
 	@Test
