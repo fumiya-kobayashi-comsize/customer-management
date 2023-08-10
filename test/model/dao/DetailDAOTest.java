@@ -15,6 +15,11 @@ import org.junit.jupiter.api.Test;
 import model.entity.CustomerBean;
 import model.entity.UserBean;
 
+/**
+ * m_customerテーブルから編集する顧客情報を検索するDAOクラスのテストクラス
+ * @author 此上
+ */
+
 class DetailDAOTest {
 
 	@Disabled
