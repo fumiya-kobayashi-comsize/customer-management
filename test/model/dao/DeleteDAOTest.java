@@ -7,6 +7,12 @@ import java.sql.SQLException;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+/**
+ * DeleteDAOのTestクラスです。
+ * @author 吉田
+ */
+
+
 class DeleteDAOTest {
 
 	@Disabled
