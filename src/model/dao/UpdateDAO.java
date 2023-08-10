@@ -37,15 +37,15 @@ public class UpdateDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			// プレースホルダへの値の設定
-			pstmt.setString(1, updateBean.getCustomerName());
-			pstmt.setString(2, updateBean.getCustomerNameKana());
-			pstmt.setString(3, updateBean.getPostalCode());
-			pstmt.setString(4, updateBean.getAddress());
-			pstmt.setString(5, updateBean.getAreaCode());
-			pstmt.setString(6, updateBean.getContactPersonName());
-			pstmt.setString(7, updateBean.getContactPersonNameKana());
-			pstmt.setString(8, updateBean.getContactPersonTel());
-			pstmt.setString(9, updateBean.getUserId());
+			pstmt.setString(1,updateBean.getCustomerName());
+			pstmt.setString(2,updateBean.getCustomerNameKana());
+			pstmt.setString(3,updateBean.getPostalCode());
+			pstmt.setString(4,updateBean.getAddress());
+			pstmt.setString(5,updateBean.getAreaCode());
+			pstmt.setString(6,updateBean.getContactPersonName());
+			pstmt.setString(7,updateBean.getContactPersonNameKana());
+			pstmt.setString(8,updateBean.getContactPersonTel());
+			pstmt.setString(9,updateBean.getUserId());
 			pstmt.setInt(10,updateBean.getCustomerId());
 
 			count = pstmt.executeUpdate();
