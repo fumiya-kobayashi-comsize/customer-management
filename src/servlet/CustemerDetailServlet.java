@@ -52,7 +52,7 @@ public class CustemerDetailServlet extends HttpServlet {
 		try {
 
 			//customerIdを取得
-			CustomerBean detailbean = dao.detail(request.getParameter("CustomerId"));
+			CustomerBean detailbean = dao.detail(Integer.parseInt(request.getParameter("CustomerId")));
 
 			//編集する顧客情報をセッションに入れる
 			HttpSession session =request.getSession();

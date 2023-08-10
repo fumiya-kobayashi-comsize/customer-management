@@ -60,7 +60,7 @@ public class CustomerDeleteServlet extends HttpServlet {
 			try {
 
 					//customerIdを取得
-					 customerBean = detailDao.detail(request.getParameter("CustomerId"));
+					 customerBean = detailDao.detail(Integer.parseInt(request.getParameter("CustomerId")));
 
 					// 削除処理
 						processingNumber = dao.deleteCustmor(Integer.parseInt(request.getParameter("CustomerId")));

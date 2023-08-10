@@ -21,7 +21,7 @@ public class DetailDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public CustomerBean detail(String CustomerId)
+	public CustomerBean detail(int CustomerId)
 			throws SQLException, ClassNotFoundException{
 
 		String sql ="SELECT t1.customer_id, t1.customer_name, t1.customer_name_kana,"
@@ -39,7 +39,7 @@ public class DetailDAO {
 				) {
 
 			// プレースホルダへの値の設定
-			pstmt.setString(1, CustomerId);
+			pstmt.setInt(1, CustomerId);
 			ResultSet res = pstmt.executeQuery();
 
 			//結果の操作
