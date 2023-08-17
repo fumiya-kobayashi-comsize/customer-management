@@ -20,19 +20,19 @@
 	<table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客名称：<br></td>
-			<td><input type="text" name="customerName" size="50"><br></td>
+			<td><input type="text" name="customerName" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>顧客名称かな：<br></td>
-			<td><input type="text" name="customerNameKana" size="50"><br></td>
+			<td><input type="text" name="customerNameKana" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>郵便番号：<br></td>
-			<td class="postal"><input type="text" name="postalCode" size="8" placeholder="XXX-XXXX"><br></td>
+			<td class="postal"><input type="text" name="postalCode" size="8" placeholder="XXX-XXXX" required = "-"><br></td>
 		</tr>
 		<tr>
 			<td>所在地：<br></td>
-			<td><input type="text" name="address" size="50"><br></td>
+			<td><input type="text" name="address" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>地区情報：<br></td>
@@ -45,7 +45,7 @@
 			<%
 				for(CustomerBean areabean : areaList){
 			%>
-			<option value="<%=areabean.getAreaCode()%>,<%=areabean.getAreaName()%>"><%=areabean.getAreaName()%>
+			<option value="<%=areabean.getAreaCode()%>,<%=areabean.getAreaName()%>" required><%=areabean.getAreaName()%>
 			</option>
 			<%
 				}
@@ -55,15 +55,15 @@
 		</tr>
 		<tr>
 			<td>担当者名：<br></td>
-			<td><input type="text" name="contactPersonName" size="50"><br></td>
+			<td><input type="text" name="contactPersonName" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>担当者かな：<br></td>
-			<td><input type="text" name="contactPersonNameKana" size="50"><br></td>
+			<td><input type="text" name="contactPersonNameKana" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>担当者電話番号：<br></td>
-			<td><input type="text" name="contactPersonTel" size="50"><br></td>
+			<td><input type="text" name="contactPersonTel" size="50" required><br></td>
 		</tr>
 		<tr>
 			<td>営業担当者情報：<br></td>
@@ -76,7 +76,7 @@
 			<%
 				for(UserBean userbean : userList){
 			%>
-			<option value="<%=userbean.getUserId()%>,<%=userbean.getUserName()%>"><%=userbean.getUserName()%>
+			<option value="<%=userbean.getUserId()%>,<%=userbean.getUserName()%>" required><%=userbean.getUserName()%>
 			</option>
 			<%
 				}
@@ -86,7 +86,13 @@
 		</tr>
 	</table>
 	<br>
-	<input type="submit" value="登録する"><input type="reset" value="クリア">
+	<input type="submit" value="登録する"><input type="reset" value="クリア"><br>
+	</form>
+	<form action="customer-list.jsp" method="POST" style="text-align: center">
+		<input type="submit" value="顧客情報一覧へ"><br>
+	</form>
+	<form action="menu.jsp" method="POST" style="text-align: center">
+		<input type="submit" value="メニュー画面へ"><br>
 	</form>
 </body>
 </html>
