@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 public class InquiryBean {
 	private int inquiryId;
 	private int customerId;
+	private String customerName;
 	private Timestamp inquiryDatetime;
 	private String inquiryContents;
 	private String replyContents;
@@ -45,6 +46,21 @@ public class InquiryBean {
 	 */
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
+	}
+
+	/**
+	 * フィールドcustomerNameの値を返します。
+	 * @return 顧客名
+	 */
+	public String getCustomerName() {
+		return customerName;
+	}
+	/**
+	 * フィールドcustomerNameの値を設定します。
+	 * @param customerName 顧客名
+	 */
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 
 	/**
