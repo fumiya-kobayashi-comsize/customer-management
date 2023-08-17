@@ -25,24 +25,24 @@
 			<td>顧客ID：<br></td>
 			<td>
 				<%=detailbean.getCustomerId() %>
-				<input type="hidden" name="customerId" value=<%=detailbean.getCustomerId()%>><br>
+				<input type="hidden" name="customerId" value=<%=detailbean.getCustomerId()%> required><br>
 			</td>
 		</tr>
 		<tr>
 			<td>顧客名称：<br></td>
-			<td><input type="text" name="customerName" value=<%=detailbean.getCustomerName()%> size="50"><br></td>
+			<td><input type="text" size="50" name="customerName" value=<%=detailbean.getCustomerName()%> required><br></td>
 		</tr>
 		<tr>
 			<td>顧客名称かな：<br></td>
-			<td><input type="text" name="customerNameKana" value=<%=detailbean.getCustomerNameKana()%> size="50"><br></td>
+			<td><input type="text" size="50" name="customerNameKana" value=<%=detailbean.getCustomerNameKana()%>><br></td>
 		</tr>
 		<tr>
 			<td>郵便番号：<br></td>
-			<td class="postal"><input type="text" name="postalCode" value=<%=detailbean.getPostalCode()%> size="8" placeholder="XXX-XXXX"><br></td>
+			<td class="postal"><input type="text" name="postalCode" value=<%=detailbean.getPostalCode()%> pattern="\d{3}-\d{4}" placeholder="XXX-XXXX"><br></td>
 		</tr>
 		<tr>
 			<td>所在地：<br></td>
-			<td><input type="text" name="address" value=<%=detailbean.getAddress()%> size="50"><br></td>
+			<td><input type="text" size="50" name="address" value=<%=detailbean.getAddress()%>><br></td>
 		</tr>
 		<tr>
 			<td>地区情報：<br></td>
@@ -66,15 +66,15 @@
 		</tr>
 		<tr>
 			<td>担当者名：<br></td>
-			<td><input type="text" name="contactPersonName" value=<%=detailbean.getContactPersonName()%> size="50"><br></td>
+			<td><input type="text" size="50" name="contactPersonName" value=<%=detailbean.getContactPersonName()%>><br></td>
 		</tr>
 		<tr>
 			<td>担当者かな：<br></td>
-			<td><input type="text" name="contactPersonNameKana" value=<%=detailbean.getContactPersonNameKana()%> size="50"><br></td>
+			<td><input type="text" size="50" name="contactPersonNameKana" value=<%=detailbean.getContactPersonNameKana()%>><br></td>
 		</tr>
 		<tr>
 			<td>担当者電話番号：<br></td>
-			<td><input type="text" name="contactPersonTel" value=<%=detailbean.getContactPersonTel()%> size="50"><br></td>
+			<td><input type="text" size="50" name="contactPersonTel" value=<%=detailbean.getContactPersonTel()%>><br></td>
 		</tr>
 		<tr>
 			<td>営業担当者情報：<br></td>
