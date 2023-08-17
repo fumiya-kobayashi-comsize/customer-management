@@ -78,3 +78,46 @@ INSERT INTO customer_db.m_customer (customer_name,customer_name_kana,postal_code
     ,area_code,contact_person_name,contact_person_name_kana,contact_person_tel,user_id)
     VALUES ('会社B','かいしやびー','1540012','東京都世田谷区','A200','担当者B','たんとうしやびー','08056781234','5678');
 
+
+/*追加システム*/
+/*テーブル作成*/
+CREATE TABLE customer_db.m_status(
+    status_code CHAR(2) PRIMARY KEY,
+    status_name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE customer_db.t_inquiry(
+    inquiry_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    inquiry_datetime TIMESTAMP NOT NULL DEFAULT current_timestamp,
+    inquiry_contents VARCHAR(200),
+    reply_contents VARCHAR(400),
+    status_code CHAR(2) NOT NULL DEFAULT '00',
+    update_datetime TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp
+);
+
+
+/*外部キー制約付与*/
+ALTER TABLE customer_db.t_inquiry ADD FOREIGN KEY (customer_id)
+    REFERENCES customer_db.m_customer (customer_id);
+
+ALTER TABLE customer_db.t_inquiry ADD FOREIGN KEY (status_code)
+    REFERENCES customer_db.m_status (status_code);
+
+/*初期データをINSERT（ステータスマスタ）*/
+INSERT INTO customer_db.m_status (status_code,status_name)
+    VALUES ('00','未対応');
+
+INSERT INTO customer_db.m_status (status_code,status_name)
+    VALUES ('50','確認依頼中');
+
+INSERT INTO customer_db.m_status (status_code,status_name)
+    VALUES ('99','対応完了');
+
+/*初期データをINSERT（問合せテーブル）*/
+INSERT INTO customer_db.t_inquiry (customer_id,inquiry_contents,reply_contents,status_code)
+    VALUES ('1','   テスト１','テスト１','00');
+
+INSERT INTO customer_db.t_inquiry (customer_id,inquiry_contents,reply_contents,status_code)
+    VALUES ('2','   テスト２','テスト２','50');
+
