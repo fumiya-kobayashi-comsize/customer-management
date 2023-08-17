@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<td>郵便番号：<br></td>
-			<td class="postal"><input type="text" name="postalCode" size="8" placeholder="XXX-XXXX" required = "-"><br></td>
+			<td class="postal"><input type="text" name="postalCode" pattern="\d{3}-\d{4}"placeholder="XXX-XXXX" required = "-"><br></td>
 		</tr>
 		<tr>
 			<td>所在地：<br></td>
