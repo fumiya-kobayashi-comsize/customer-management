@@ -88,7 +88,7 @@
 	<br>
 	<input type="submit" value="登録する"><input type="reset" value="クリア"><br>
 	</form>
-	<form action="customer-list.jsp" method="POST" style="text-align: center">
+	<form action="customer-list-servlet" method="POST" style="text-align: center">
 		<input type="submit" value="顧客情報一覧へ"><br>
 	</form>
 	<form action="menu.jsp" method="POST" style="text-align: center">
