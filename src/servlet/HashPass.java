@@ -37,7 +37,7 @@ public class HashPass {
 		 		}
 		 	}
 		 	//String型で受け取る
-		 	String pass =buffer.toString();
+		 	String pass = buffer.toString();
 
 		 return pass;
 
