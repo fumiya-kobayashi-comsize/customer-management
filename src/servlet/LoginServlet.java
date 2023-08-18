@@ -15,7 +15,7 @@ import model.dao.LoginDAO;
 
 /**
  * ログイン認証処理を制御する
- * @author 吉田
+ * @author 吉田、竹内
  */
 /**
  * Servlet implementation class LoginServlet
@@ -55,12 +55,22 @@ public class LoginServlet extends HttpServlet {
 			String userId = request.getParameter("userId");
 			String password = request.getParameter("password");
 
+		//HashPass.javaをインスタンス化
+		HashPass hashpass = new HashPass();
+		//ハッシュ化したパスワードの変数
+		String pass = null;
+
+
 		try {
+			//入力されたパスワード(String password)を送り、
+			//ハッシュ化したパスワード(String pass)を受け取る
+			pass = hashpass.hash(password);
+
 			// DAOの生成
 			LoginDAO loginDao = new LoginDAO();
 
 			// DAOの利用
-			if (loginDao.loginCheck(userId, password)) {
+			if (loginDao.loginCheck(userId, pass)) {
 				// 認証成功
 				url = "menu.jsp";
 
@@ -86,3 +96,4 @@ public class LoginServlet extends HttpServlet {
 	}
 
 }
+
