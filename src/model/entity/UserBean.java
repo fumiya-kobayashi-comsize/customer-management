@@ -2,7 +2,7 @@ package model.entity;
 
 /**
  * システム利用者を表します。
- * @author 吉田
+ * @author 吉田、竹内
  */
 
 
@@ -11,6 +11,7 @@ public class UserBean{
 	private String userId;
 	private String password;
 	private String userName;
+	private String pass;
 
 
 	/**
@@ -59,6 +60,22 @@ public class UserBean{
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	/**
+	 * passの値を返します。
+	 * @return pass
+	 */
+	public String getPass() {
+		return pass;
+	}
+
+	/**
+	 * フィールドpassの値を設定します。
+	 * @param pass パスワード(ハッシュ化されたもの)
+	 */
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 
