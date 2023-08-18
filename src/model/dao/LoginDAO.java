@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 /**
  * m_userテーブルのDAOです。
- * @author 吉田
+ * @author 吉田、竹内
  */
 
 
@@ -18,13 +18,13 @@ public class LoginDAO {
 	 * m_userに該当するレコードが存在するかどうかを検索する。
 	 *
 	 * @param userId ユーザID
-	 * @param password パスワード
+	 * @param pass パスワード
 	 * @return 認証成功の場合 true、そうでない場合 false
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
 
-	public boolean loginCheck(String userId, String password)
+	public boolean loginCheck(String userId, String pass)
 			throws ClassNotFoundException, SQLException {
 
 		String sql = "SELECT * FROM m_user WHERE user_id = ? AND password = ?";
@@ -35,7 +35,7 @@ public class LoginDAO {
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, userId);
-			pstmt.setString(2, password);
+			pstmt.setString(2, pass);
 
 			// SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
