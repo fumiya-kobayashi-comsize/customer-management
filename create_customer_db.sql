@@ -58,16 +58,16 @@ INSERT INTO customer_db.m_area (area_code,area_name)
 
 /*初期データをINSERT（ユーザマスタ）*/
 INSERT INTO customer_db.m_user (user_id,password,user_name)
-    VALUES ('1234','pass1','山田');
+    VALUES ('1234','da63e2fb4169549cf2204d3ba4766405','山田');
 
 INSERT INTO customer_db.m_user (user_id,password,user_name)
-    VALUES ('5678','pass2','田中');
+    VALUES ('5678','9e574aafbaa238417ff9bc25373b0d93','田中');
 
 INSERT INTO customer_db.m_user (user_id,password,user_name)
-    VALUES ('91011','pass3','鈴木');
+    VALUES ('91011','433dbf0c9ee1172dc98c7f94a9aeb4d9','鈴木');
 
 INSERT INTO customer_db.m_user (user_id,password,user_name)
-    VALUES ('121314','pass4','伊藤');
+    VALUES ('121314','ab333459dd278b9e5fff52a31fbadcf8','伊藤');
 
 /*初期データをINSERT（顧客マスタ）*/
 INSERT INTO customer_db.m_customer (customer_name,customer_name_kana,postal_code,address
