@@ -60,23 +60,19 @@ public class LoginServlet extends HttpServlet {
 		//ハッシュ化したパスワードの変数
 		String pass = null;
 
-		String hashSalt = null;
 		String salt = "SopkHdb";
 
 
 		try {
-			//入力されたパスワード(String password)を送り、
+			//入力されたパスワード(String password)とsaltを送り、
 			//ハッシュ化したパスワード(String pass)を受け取る
-			pass = hashpass.hash(password);
-
-			//ハッシュ化したパスワードとsaltを連結して再度ハッシュ化
-			hashSalt = hashpass.hash(salt + pass);
+			pass = hashpass.hash(password + salt);
 
 			// DAOの生成
 			LoginDAO loginDao = new LoginDAO();
 
 			// DAOの利用
-			if (loginDao.loginCheck(userId, hashSalt)) {
+			if (loginDao.loginCheck(userId, pass)) {
 				// 認証成功
 				url = "menu.jsp";
 
