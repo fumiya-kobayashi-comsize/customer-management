@@ -19,7 +19,7 @@ class LoginDAOTest {
 		LoginDAO loginDao = new LoginDAO();
 		boolean loginCheck =false;
 		try {
-			loginCheck = loginDao.loginCheck("1234","pass1");
+			loginCheck = loginDao.loginCheck("1234","cf42cb5b11549c86f4c2aa8ffc7f8d3f");
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
