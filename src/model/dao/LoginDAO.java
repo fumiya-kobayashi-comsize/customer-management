@@ -24,7 +24,7 @@ public class LoginDAO {
 	 * @throws SQLException
 	 */
 
-	public boolean loginCheck(String userId, String hashSalt)
+	public boolean loginCheck(String userId, String pass)
 			throws ClassNotFoundException, SQLException {
 
 		String sql = "SELECT * FROM m_user WHERE user_id = ? AND password = ?";
@@ -35,7 +35,7 @@ public class LoginDAO {
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, userId);
-			pstmt.setString(2, hashSalt);
+			pstmt.setString(2, pass);
 
 			// SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
