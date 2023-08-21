@@ -20,7 +20,11 @@
 		</form>
 		<br>
 		<form action="InquiryListServlet" method="POST">
-			<input type="submit" value="問合せ一覧">
+			<input type="submit" value="問合せ情報一覧">
+		</form>
+		<br>
+		<form action="InqulryRegisterServlet" method="GET">
+			<input type="submit" value="問合せ情報登録">
 		</form>
 		<br>
 		<form action="logout.jsp" method="POST">
