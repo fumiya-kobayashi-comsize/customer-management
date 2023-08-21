@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.InquiryBean"%>
+    pageEncoding="UTF-8" import="model.entity.InquiryBean,java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,9 @@
 		</tr>
 		<tr>
 			<td>問合せ日時：<br></td>
-			<td><%=inquiryBean.getInquiryDatetime() %></td>
+			<%SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		    String formattedDate = dateFormat.format(inquiryBean.getInquiryDatetime()); %>
+			<td><%=formattedDate%></td>
 		</tr>
 		<tr>
 			<td>問合せ内容：<br></td>
@@ -40,6 +42,14 @@
 			<td>ステータス情報：<br></td>
 			<td><%=inquiryBean.getStatusName() %></td>
 		</tr>
-	</table>
+	</table><br>
+	<div align="center">
+	<form action ="inquiry-list.jsp" method ="POST">
+		<input type ="submit" value ="問合せ一覧に戻る">
+	</form>
+	<form action ="menu.jsp" method ="POST">
+		<input type ="submit" value ="メニューに戻る">
+	</form>
+	</div>
 </body>
 </html>

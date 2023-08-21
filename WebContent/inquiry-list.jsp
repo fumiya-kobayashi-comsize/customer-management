@@ -48,7 +48,6 @@
 			<td>
 				<form action ="inquiry-delete.jsp" method ="POST">
 				<input type ="submit" value ="削除">
-				<input type ="hidden" name ="CustomerId" value = "<%=inquiryBean.getInquiryId()%>">
 				</form>
 			</td>
 
