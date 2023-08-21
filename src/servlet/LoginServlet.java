@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,21 +54,15 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// リクエストパラメータの取得
-			String userId = request.getParameter("userId");
-			String password = request.getParameter("password");
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
 
-		//HashPass.javaをインスタンス化
-		HashPass hashpass = new HashPass();
-		//ハッシュ化したパスワードの変数
 		String pass = null;
 
-		String salt = "SopkHdb";
-
-
 		try {
-			//入力されたパスワード(String password)とsaltを送り、
+			//入力されたパスワード(String password)とsalt(String userId)を送り、
 			//ハッシュ化したパスワード(String pass)を受け取る
-			pass = hashpass.hash(password + salt);
+			pass = hash(password + userId);
 
 			// DAOの生成
 			LoginDAO loginDao = new LoginDAO();
@@ -94,6 +90,40 @@ public class LoginServlet extends HttpServlet {
 			// リクエストの転送
 			RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);
+
+	}
+
+	/**
+	 * パスワードをハッシュ化する。
+	 *
+	 * @param password パスワード
+	 * @return pass ハッシュ化されたパスワード
+	 * @throws NoSuchAlgorithmException
+	 */
+	public String hash(String password) throws NoSuchAlgorithmException {
+
+		 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+		 //passwordをbyte型で読み込む
+		 messageDigest.update(password.getBytes());
+		 //byte型の配列を作る
+		 byte[] digest = messageDigest.digest();
+
+		 //文字列を操作
+		 StringBuffer buffer = new StringBuffer();
+		 	for(int i = 0; i < digest.length; i++) {
+		 		//16進数に変換
+		 		String tmp = Integer.toHexString(digest[i] & 0xff);
+		 		//16進数になった配列の要素をつなげる
+		 		if(tmp.length() == 1) {
+		 			buffer.append('0').append(tmp);
+		 		} else {
+		 			buffer.append(tmp);
+		 		}
+		 	}
+		 	//String型で受け取る
+		 	String pass = buffer.toString();
+
+		 return pass;
 
 	}
 
