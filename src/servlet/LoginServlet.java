@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.LoginDAO;
 
@@ -71,12 +70,6 @@ public class LoginServlet extends HttpServlet {
 			if (loginDao.loginCheck(userId, pass)) {
 				// 認証成功
 				url = "menu.jsp";
-
-				// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
-
-				// セッションスコープへの属性の設定
-				session.setAttribute("userId", userId);
 
 				} else {
 					// 認証失敗
