@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.InquiryBean, java.util.List"%>
+    pageEncoding="UTF-8" import="model.entity.InquiryBean, java.util.List, java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +27,16 @@
 			<td>顧客情報：<br></td>
 			<td>
 				<%=inquiryBean.getCustomerName() %>
-				<input type="hidden" name="inquiryId" value=<%=inquiryBean.getInquiryId()%>><br>
+				<input type="hidden" name="inquiryId" value=<%=inquiryBean.getInquiryId()%>>
+				<input type="hidden" name="customerId" value=<%=inquiryBean.getCustomerId()%>>
+				<input type="hidden" name="customerName" value=<%=inquiryBean.getCustomerName()%>>
 			</td>
 		</tr>
 		<tr>
 			<td>問合せ日時：<br></td>
-			<td><textarea rows="1" cols="60" name= "inquiryDatetime"><%=inquiryBean.getInquiryDatetime()%></textarea><br></td>
+			<%SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		    String formattedDate = dateFormat.format(inquiryBean.getInquiryDatetime()); %>
+			<td><textarea rows="1" cols="60" name= "inquiryDatetime"><%=formattedDate%></textarea><br></td>
 		</tr>
 		<tr>
 			<td class="inquiryContents">問合せ内容：<br></td>

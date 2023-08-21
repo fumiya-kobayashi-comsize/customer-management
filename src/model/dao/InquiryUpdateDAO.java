@@ -25,6 +25,7 @@ public class InquiryUpdateDAO {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE ");
+		sb.append("t_inquiry ");
 		sb.append("SET ");
 		sb.append("inquiry_datetime = ? ");
 		sb.append(", inquiry_contents = ? ");

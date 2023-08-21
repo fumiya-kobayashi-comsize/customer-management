@@ -1,10 +1,8 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import model.dao.InquiryUpdateDAO;
 import model.entity.InquiryBean;
@@ -60,12 +56,12 @@ public class InquiryUpdateServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String inquiryDatetime = request.getParameter("inquiryDatetime");
-		Date datetime = datetime(inquiryDatetime);
-		Timestamp ts = new Timestamp(datetime.getTime());
+		Timestamp ts = Timestamp.valueOf(inquiryDatetime);
 
 		// 変更情報をbeanにセット
 		inquiryBean.setInquiryId(Integer.parseInt(request.getParameter("inquiryId")));
 		inquiryBean.setCustomerId(Integer.parseInt(request.getParameter("customerId")));
+		inquiryBean.setCustomerName(request.getParameter("customerName"));
 		inquiryBean.setInquiryDatetime(ts);
 		inquiryBean.setInquiryContents(request.getParameter("inquiryContents"));
 		inquiryBean.setReplyContents(request.getParameter("replyContents"));
@@ -98,18 +94,4 @@ public class InquiryUpdateServlet extends HttpServlet {
 
 		}
 	}
-
-	public static Date datetime(String datetime) {
-		Date date = null;
-        try {
-            String strDate = datetime;
-
-            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-            date = (Date) sdFormat.parse(strDate);
-
-        } catch (ParseException | java.text.ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
 }
