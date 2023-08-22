@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.InqulryRegisterDAO;
+import model.entity.CustomerBean;
 import model.entity.InquiryBean;
 
 
@@ -47,12 +48,17 @@ public class InqulryRegisterServlet extends HttpServlet {
 			InqulryRegisterDAO inqulryDao = new InqulryRegisterDAO();
 		//リスト作成
 			List<InquiryBean> statusList = null;
+			List<CustomerBean>customerList =null;
+
 
 			try {
 			//t_inquiryテーブルのリストをセッションにセット
 			HttpSession session =request.getSession();
 			statusList = inqulryDao.statusList();
 			session.setAttribute("inqulryStatusList", statusList);
+
+			customerList = inqulryDao.customerList();
+			session.setAttribute("inqulryCustomerList", customerList);
 
 			} catch (SQLException | ClassNotFoundException e) {
 
@@ -77,22 +83,22 @@ public class InqulryRegisterServlet extends HttpServlet {
 
 		// DAOのインスタンス化
 		InqulryRegisterDAO inqulryDao = new InqulryRegisterDAO();
+
 		// Beanのインスタンス化
 		InquiryBean inqulryregisterBean = new InquiryBean();
 
 		//入力された問合せ情報をbeanにセット
+		String[] arrayCustomer = request.getParameter("customer").split(",");
 		String[] arrayStatus = request.getParameter("status").split(",");
 
 		String inquiryDatetime = request.getParameter("inquiryDatetime");
 		Timestamp ts = Timestamp.valueOf(inquiryDatetime);
 
-
-
-		inqulryregisterBean.setCustomerId(Integer.parseInt(request.getParameter("customerId")));
+		inqulryregisterBean.setCustomerId(Integer.parseInt(arrayCustomer[0]));
+		inqulryregisterBean.setCustomerName(arrayCustomer[1]);
 		inqulryregisterBean.setInquiryDatetime(ts);
 		inqulryregisterBean.setInquiryContents(request.getParameter("inquiryContents"));
 		inqulryregisterBean.setReplyContents(request.getParameter("replyContents"));
-		inqulryregisterBean.setStatusCode(request.getParameter("statusCode"));
 		inqulryregisterBean.setStatusCode(arrayStatus[0]);
 		inqulryregisterBean.setStatusName(arrayStatus[1]);
 
@@ -114,9 +120,9 @@ public class InqulryRegisterServlet extends HttpServlet {
 
 				// 遷移先画面の分岐
 				if (inquryinsertCount > 0) {
-					response.sendRedirect(request.getContextPath() + "inqulry-success.jsp");
+					response.sendRedirect(request.getContextPath() + "/inqulry-success.jsp");
 				} else {
-					response.sendRedirect(request.getContextPath() + "inqulry-failure.jsp");
+					response.sendRedirect(request.getContextPath() + "/inqulry-failure.jsp");
 				}
 			}
 
