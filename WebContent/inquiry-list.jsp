@@ -42,12 +42,13 @@
 			<td>
 				<form action ="InquiryDetailServlet" method ="POST">
 				<input type ="submit" value ="編集">
-				<input type ="hidden" name ="CustomerId" value = "<%=inquiryBean.getInquiryId()%>">
+				<input type ="hidden" name ="inquiryId" value = "<%=inquiryBean.getInquiryId()%>">
 				</form>
 			</td>
 			<td>
-				<form action ="inquiry-delete.jsp" method ="POST">
+				<form action ="InquiryDeleteDetailServlet" method ="POST">
 				<input type ="submit" value ="削除">
+				<input type ="hidden" name ="inquiryId" value = "<%=inquiryBean.getInquiryId()%>">
 				</form>
 			</td>
 

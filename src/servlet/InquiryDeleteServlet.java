@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.InquiryDeleteDAO;
-import model.entity.InquiryBean;
 
 /**
  * Servlet implementation class InquiryDeleteServlet
@@ -47,7 +46,6 @@ public class InquiryDeleteServlet extends HttpServlet {
 
 		//DAO、Bean生成
 		InquiryDeleteDAO inquiryDeleteDao = new InquiryDeleteDAO();
-		InquiryBean InquiryBean = new InquiryBean();
 
 		int inquiryDeleteCount = 0; //処理件数
 		try {
@@ -62,7 +60,6 @@ public class InquiryDeleteServlet extends HttpServlet {
 		request.setAttribute("inquiryDeleteCount", inquiryDeleteCount);
 
 		// 削除結果画面に遷移
-
 		if (inquiryDeleteCount == 0) {
 			RequestDispatcher rd = request.getRequestDispatcher("inquiry-delete-failure.jsp");
 			rd.forward(request, response);

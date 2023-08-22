@@ -18,7 +18,7 @@
 <body>
 <hr>
 	<h1 align="center">以下の問合せ情報の削除に成功しました。</h1>
-<%InquiryBean inquiryBean = (InquiryBean)session.getAttribute("inquiryDetailBean"); %>
+<%InquiryBean inquiryBean = (InquiryBean)session.getAttribute("inquiryDeleteDetailBean"); %>
 	<table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客情報：<br></td>
@@ -44,7 +44,7 @@
 		</tr>
 	</table><br>
 	<div align="center">
-	<form action ="inquiry-list.jsp" method ="POST">
+	<form action ="InquiryListServlet" method ="POST">
 		<input type ="submit" value ="問合せ一覧に戻る">
 	</form>
 	<form action ="menu.jsp" method ="POST">

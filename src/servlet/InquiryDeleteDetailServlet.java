@@ -15,24 +15,30 @@ import model.dao.InquiryDetailDAO;
 import model.entity.InquiryBean;
 
 /**
- * Servlet implementation class InquiryDetailServlet
+ * 削除する問合せ情報を表示するコントロールクラス
+ * @author 此上
  */
-@WebServlet("/InquiryDetailServlet")
-public class InquiryDetailServlet extends HttpServlet {
+
+/**
+ * Servlet implementation class InquiryDeleteDetailServlet
+ */
+@WebServlet("/InquiryDeleteDetailServlet")
+public class InquiryDeleteDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InquiryDetailServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public InquiryDeleteDetailServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -40,17 +46,17 @@ public class InquiryDetailServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		InquiryDetailDAO inquiryDetailDao = new InquiryDetailDAO();
-
 		try {
 
-			//customerIdを取得
+			//inquiryIdを取得
 			InquiryBean inquiryBean = inquiryDetailDao.detail(Integer.parseInt(request.getParameter("inquiryId")));
 
 			//編集する顧客情報をセッションに入れる
-			HttpSession session =request.getSession();
-			session.setAttribute("inquiryDetailBean", inquiryBean);
+			HttpSession session = request.getSession();
+			session.setAttribute("inquiryDeleteDetailBean", inquiryBean);
 
 		} catch (SQLException | ClassNotFoundException e) {
 
@@ -59,8 +65,7 @@ public class InquiryDetailServlet extends HttpServlet {
 		}
 
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("inquiry-update.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("inquiry-delete.jsp");
 		rd.forward(request, response);
 	}
-
 }

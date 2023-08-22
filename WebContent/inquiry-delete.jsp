@@ -18,7 +18,7 @@
 <body>
 <hr>
 	<h1 align="center">以下の問合せ情報を削除しますか？</h1>
-<%InquiryBean inquiryBean = (InquiryBean)session.getAttribute("inquiryDetailBean"); %>
+<%InquiryBean inquiryBean = (InquiryBean)session.getAttribute("inquiryDeleteDetailBean"); %>
 <table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客情報：<br></td>

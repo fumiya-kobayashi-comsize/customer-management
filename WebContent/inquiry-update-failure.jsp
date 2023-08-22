@@ -44,7 +44,7 @@
 		</tr>
 	</table><br>
 	<div align="center">
-	<form action ="inquiry-list.jsp" method ="POST">
+	<form action ="InquiryListServlet" method ="POST">
 		<input type ="submit" value ="問合せ一覧に戻る">
 	</form>
 	<form action ="menu.jsp" method ="POST">

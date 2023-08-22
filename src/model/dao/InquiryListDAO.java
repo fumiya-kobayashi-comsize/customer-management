@@ -39,9 +39,9 @@ public class InquiryListDAO {
 		sb.append(", t3.status_code ");
 		sb.append(", t3.status_name ");
 		sb.append("FROM ");
-		sb.append("t_inquiry t2 JOIN m_customer t1 ");
-		sb.append("ON t2.customer_id = t1.customer_id JOIN customer_db.m_status t3 ");
-		sb.append("ON t2.status_code = t3.status_code;");
+		sb.append("t_inquiry t2 ");
+		sb.append("JOIN m_customer t1 ON t2.customer_id = t1.customer_id ");
+		sb.append("JOIN customer_db.m_status t3 ON t2.status_code = t3.status_code;");
 		String sql = sb.toString();
 
 		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
