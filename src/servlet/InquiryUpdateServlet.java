@@ -58,6 +58,8 @@ public class InquiryUpdateServlet extends HttpServlet {
 		String inquiryDatetime = request.getParameter("inquiryDatetime");
 		Timestamp ts = Timestamp.valueOf(inquiryDatetime);
 
+		String[] arrayStatus = request.getParameter("status").split(",");
+
 		// 変更情報をbeanにセット
 		inquiryBean.setInquiryId(Integer.parseInt(request.getParameter("inquiryId")));
 		inquiryBean.setCustomerId(Integer.parseInt(request.getParameter("customerId")));
@@ -65,8 +67,8 @@ public class InquiryUpdateServlet extends HttpServlet {
 		inquiryBean.setInquiryDatetime(ts);
 		inquiryBean.setInquiryContents(request.getParameter("inquiryContents"));
 		inquiryBean.setReplyContents(request.getParameter("replyContents"));
-		inquiryBean.setStatusName(request.getParameter("statusName"));
-		inquiryBean.setStatusCode(request.getParameter("statusCode"));
+		inquiryBean.setStatusName(arrayStatus[1]);
+		inquiryBean.setStatusCode(arrayStatus[0]);
 
 		try {
 

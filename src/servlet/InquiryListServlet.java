@@ -17,7 +17,8 @@ import model.dao.InquiryListDAO;
 import model.entity.InquiryBean;
 
 /**
- * Servlet implementation class InquiryListServlet
+ * 問合せ情報の一覧表示を行うコントロールクラス
+ * @author 此上
  */
 @WebServlet("/InquiryListServlet")
 public class InquiryListServlet extends HttpServlet {

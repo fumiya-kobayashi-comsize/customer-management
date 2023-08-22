@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.InquiryBean;
 
@@ -66,6 +68,40 @@ public class InquiryDetailDAO {
 			}
 		}
 		return inquiryBean;
+	}
+
+	/**
+	 * status情報のリストを返します。
+	 * @return status情報
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public List<InquiryBean> statusList()
+			throws SQLException, ClassNotFoundException{
+
+		List<InquiryBean> statusList = new ArrayList<InquiryBean>();
+
+		String sql = "SELECT * FROM m_status";
+
+		//DB接続の取得、PreparedStatementの取得、SQLステートメントの実行
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet res = pstmt.executeQuery()) {
+
+			//結果の操作
+			while (res.next()) {
+
+				//beanのインスタンス化
+				InquiryBean inquirybean = new InquiryBean();
+
+				//beanに値をセット
+				inquirybean.setStatusCode(res.getString("status_code"));
+				inquirybean.setStatusName(res.getString("status_name"));
+
+				statusList.add(inquirybean);
+			}
+		}
+		return statusList;
 	}
 
 }

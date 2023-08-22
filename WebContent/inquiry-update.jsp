@@ -48,9 +48,22 @@
 		</tr>
 		<tr>
 			<td>ステータス情報：<br></td>
-			<td><input type="text" name="statusName" value=<%=inquiryBean.getStatusName()%> required>
-			<input type="hidden" name="statusCode" value=<%=inquiryBean.getStatusCode()%>><br>
-			<br></td>
+			<td>
+			<%
+				List<InquiryBean>statusList
+					= (List<InquiryBean>)session.getAttribute("updateStatusList");
+			%>
+			<select name="status">
+			<%
+				for(InquiryBean inquirybean : statusList){
+			%>
+			<option value="<%=inquirybean.getStatusCode()%>,<%=inquirybean.getStatusName()%>"><%=inquirybean.getStatusName()%>
+			</option>
+			<%
+				}
+			%>
+			</select><br>
+			</td>
 		</tr>
 	</table>
 	<br>

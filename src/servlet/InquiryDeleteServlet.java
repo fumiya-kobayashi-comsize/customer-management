@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.InquiryDeleteDAO;
 
 /**
- * Servlet implementation class InquiryDeleteServlet
+ * 問合せ情報の削除を行うコントロールクラス
+ * @author 此上
  */
 @WebServlet("/InquiryDeleteServlet")
 public class InquiryDeleteServlet extends HttpServlet {
