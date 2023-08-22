@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.InquiryBean" %>
+    pageEncoding="UTF-8" import=" model.entity.InquiryBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +22,15 @@
 	<hr>
 <h1 align="center">問合せ情報を登録できませんでした。</h1>
 
+
 <%InquiryBean inqulryregisterBean = (InquiryBean)session.getAttribute("inqulryregisterBean"); %>
+
 <table border="1" class="table" style="text-align: left">
 
 
 		<tr>
 			<td>顧客情報：<br></td>
-			<td><%=inqulryregisterBean.getCustomerId() %></td>
+			<td><%=inqulryregisterBean.getCustomerName() %></td>
 		</tr>
 
 		<tr>
@@ -51,10 +53,16 @@
 			<td><%=inqulryregisterBean.getStatusName()%><br></td>
 		</tr>
 	</table>
+	<br>
+
+	<form action="inqulry-register.jsp" method="POST" style="text-align: center">
+			<input type="submit" value="登録画面へ戻る">
+	</form>
+	<br>
+
 	<form action="menu.jsp" method="POST" style="text-align: center">
 			<input type="submit" value="メニュー画面へ">
 	</form>
-
 
 </body>
 </html>
