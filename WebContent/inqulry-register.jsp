@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.InquiryBean , java.util.List"%>
+    pageEncoding="UTF-8" import="model.entity.CustomerBean , model.entity.InquiryBean , java.util.List ,java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +20,31 @@
 	<table border="1" class="table" style="text-align: left">
 		<tr>
 			<td>顧客情報：<br></td>
-			<td><input type="text" name="customerInformation" size="50"><br></td>
+			<td>
+			<%
+				List<CustomerBean>customerList
+					= (List<CustomerBean>)session.getAttribute("inqulryCustomerList");
+			%>
+			<select name="customer">
+			<%
+				for(CustomerBean customerbean : customerList){
+			%>
+			<option value="<%=customerbean.getCustomerId()%>,<%=customerbean.getCustomerName()%>">
+							<%=customerbean.getCustomerName()%>
+			</option>
+			<%
+				}
+			%>
+
+			</td>
 		</tr>
 		<tr>
 			<td>問合せ日時：<br></td>
-			<td><input type="text" name="inquiryDatetime"><br></td>
+			<%SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		   	 String formattedDate = dateFormat.format(dateFormat); %>
+			<td>
+			<input type="text" name="inquiryDatetime" required
+				pattern="\d{4}-\d{2}-\{2} \d{2}:\d{2}:\{2}"placeholder="yyyy-MM-dd hh:mm:ss"><br></td>
 		</tr>
 		<tr>
 			<td>問合せ内容：<br></td>
@@ -45,11 +65,13 @@
 			<%
 				for(InquiryBean inquirybean : statusList){
 			%>
-			<option value="<%=inquirybean.getStatusCode()%>,<%=inquirybean.getStatusName()%>"><%=inquirybean.getStatusName()%>
+			<option value="<%=inquirybean.getStatusCode()%>,<%=inquirybean.getStatusName()%>">
+							<%=inquirybean.getStatusName()%>
 			</option>
 			<%
 				}
 			%>
+
 			</select><br>
 			</td>
 		</tr>
@@ -57,10 +79,12 @@
 	</table>
 	<br>
 	<input type="submit" value="登録する"><input type="reset" value="クリア">
-	</form>
-	<form action="InquiryListServlet" method="POST">
+	</form><br>
+
+	<form action="InquiryListServlet" method="POST" style="text-align: center">
 			<input type="submit" value="問合せ一覧">
-		</form>
+	</form><br>
+
 	<form action="menu.jsp" method="POST" style="text-align: center">
 		<input type="submit" value="メニュー画面へ"><br>
 	</form>
