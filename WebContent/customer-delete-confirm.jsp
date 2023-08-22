@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<th>郵便番号</th>
-				<td><%=custmorDetail.getPostalCode()%>円</td>
+				<td><%=custmorDetail.getPostalCode()%></td>
 			</tr>
 			<tr>
 				<th>所在地</th>
@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<th>担当者電話番号</th>
-				<td><%=custmorDetail.getContactPersonTel()%>円</td>
+				<td><%=custmorDetail.getContactPersonTel()%></td>
 			</tr>
 			<tr>
 				<th>営業担当者情報</th>

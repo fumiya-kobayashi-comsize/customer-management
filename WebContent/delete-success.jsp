@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<th>郵便番号</th>
-				<td><%=customerResult.getPostalCode()%>円</td>
+				<td><%=customerResult.getPostalCode()%></td>
 			</tr>
 			<tr>
 				<th>所在地</th>
@@ -64,7 +64,7 @@
 			</tr>
 			<tr>
 				<th>担当者電話番号</th>
-				<td><%=customerResult.getContactPersonTel()%>円</td>
+				<td><%=customerResult.getContactPersonTel()%></td>
 			</tr>
 			<tr>
 				<th>営業担当者情報</th>
