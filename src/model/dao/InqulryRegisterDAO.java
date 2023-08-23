@@ -36,9 +36,9 @@ public class InqulryRegisterDAO {
 		sb.append(" t_inquiry ");
 		sb.append("(customer_id ");
 		sb.append(",inquiry_datetime ");
-		sb.append(",inquiry_content ");
+		sb.append(",inquiry_contents ");
 		sb.append(",reply_contents ");
-		sb.append(", status_code ");
+		sb.append(", status_code) ");
 		sb.append("VALUES ");
 		sb.append("(?,?,?,?,?); ");
 		String sql = sb.toString();
