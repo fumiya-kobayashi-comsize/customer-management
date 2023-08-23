@@ -19,12 +19,12 @@
 
 <body>
 
-		<hr>
-<h1 align="center">問合せ情報を登録完了致しました。</h1>
+<hr>
+	<h1 align="center">問合せ情報を登録完了致しました。</h1>
 
-<%InquiryBean inqulryregisterBean = (InquiryBean)session.getAttribute("inqulryregisterBean"); %>
+	<%InquiryBean inqulryregisterBean = (InquiryBean)session.getAttribute("inqulryregisterBean"); %>
 
-<table border="1" class="table" style="text-align: left">
+	<table border="1" class="table" style="text-align: left">
 
 		<tr>
 			<td>顧客情報：<br></td>

@@ -12,7 +12,7 @@ import model.entity.InquiryBean;
 
 
 /**
- * ～説明～
+ * t_inquiryテーブルのDAOです。
  * @author 吉田
  */
 

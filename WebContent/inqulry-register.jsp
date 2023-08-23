@@ -47,11 +47,11 @@
 		</tr>
 		<tr>
 			<td>問合せ内容：<br></td>
-			<td><textarea name="inquirycontents" rows="5" cols="60"></textarea><br></td>
+			<td><textarea name="inquiryContents" rows="5" cols="60"></textarea><br></td>
 		</tr>
 		<tr>
 			<td>回答内容：<br></td>
-			<td><textarea name="replycontents " rows="5" cols="60"></textarea><br></td>
+			<td><textarea name="replyContents" rows="5" cols="60"></textarea><br></td>
 		</tr>
 		<tr>
 			<td>ステータス情報：<br></td>
