@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.CustomerBean , model.entity.InquiryBean , java.util.List ,java.text.SimpleDateFormat"%>
+    pageEncoding="UTF-8" import="model.entity.CustomerBean,model.entity.InquiryBean,java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,19 +40,18 @@
 		</tr>
 		<tr>
 			<td>問合せ日時：<br></td>
-			<%SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		   	 String formattedDate = dateFormat.format(dateFormat); %>
 			<td>
 			<input type="text" name="inquiryDatetime" required
-				pattern="\d{4}-\d{2}-\{2} \d{2}:\d{2}:\{2}"placeholder="yyyy-MM-dd hh:mm:ss"><br></td>
+				pattern="\d{4}-\d{2}-\{2} \d{2}:\d{2}:\{2}"placeholder="yyyy-MM-dd hh:mm:ss"><br>
+			</td>
 		</tr>
 		<tr>
 			<td>問合せ内容：<br></td>
-			<td><textarea name="inquiry" rows="5" cols="50"></textarea><br></td>
+			<td><textarea name="inquirycontents" rows="5" cols="60"></textarea><br></td>
 		</tr>
 		<tr>
 			<td>回答内容：<br></td>
-			<td><textarea name="inquiryAnswer" rows="5" cols="50"></textarea><br></td>
+			<td><textarea name="replycontents " rows="5" cols="60"></textarea><br></td>
 		</tr>
 		<tr>
 			<td>ステータス情報：<br></td>
