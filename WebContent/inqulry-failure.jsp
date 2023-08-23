@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import=" model.entity.InquiryBean" %>
+    pageEncoding="UTF-8" import=" model.entity.InquiryBean ,java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,9 @@
 
 		<tr>
 			<td>問合せ日時：<br></td>
-			<td><%=inqulryregisterBean.getInquiryDatetime()%><br></td>
+			<%SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		    String formattedDate = dateFormat.format(inqulryregisterBean.getInquiryDatetime()); %>
+			<td><%=formattedDate%><br></td>
 		</tr>
 
 		<tr>
