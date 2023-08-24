@@ -14,6 +14,11 @@ import org.junit.jupiter.api.Test;
 
 import model.entity.InquiryBean;
 
+/**
+ * t_inquiryテーブルから表示する問合せ情報を検索するDAOのテストクラス
+ * @author 此上
+ */
+
 class InquiryListDAOTest {
 
 	@Test

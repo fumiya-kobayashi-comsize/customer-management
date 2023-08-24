@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import model.entity.InquiryBean;
 
 /**
- * t_inquiryテーブルから編集する問合せ情報を検索するDAOクラスのテストクラス
+ * t_inquiryテーブルから編集する問合せ情報を検索するDAOのテストクラス
  * @author 此上
  */
 
