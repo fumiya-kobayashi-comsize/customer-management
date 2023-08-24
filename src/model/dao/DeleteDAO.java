@@ -29,8 +29,7 @@ public class DeleteDAO {
 
 			// プレースホルダへの値の設定
 			pstmt.setInt(1, customerId);
-			//processingNumber =
-			pstmt.executeUpdate();
+			processingNumber = pstmt.executeUpdate();
 
 		}
 		return processingNumber;

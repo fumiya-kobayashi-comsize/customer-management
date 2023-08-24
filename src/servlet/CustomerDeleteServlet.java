@@ -62,7 +62,7 @@ public class CustomerDeleteServlet extends HttpServlet {
 				customerBean = detailDao.detail(Integer.parseInt(request.getParameter("CustomerId")));
 
 				//外部キーの削除処理
-				processingNumber =dao.foreignDelete(Integer.parseInt(request.getParameter("CustomerId")));
+				processingNumber = dao.foreignDelete(Integer.parseInt(request.getParameter("CustomerId")));
 
 				//主キーの削除処理
 				processingNumber = dao.deleteCustmor(Integer.parseInt(request.getParameter("CustomerId")));
