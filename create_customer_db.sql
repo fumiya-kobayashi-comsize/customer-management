@@ -115,9 +115,10 @@ INSERT INTO customer_db.m_status (status_code,status_name)
     VALUES ('99','対応完了');
 
 /*初期データをINSERT（問合せテーブル）*/
-INSERT INTO customer_db.t_inquiry (customer_id,inquiry_contents,reply_contents,status_code)
-    VALUES ('1','   テスト１','テスト１','00');
+INSERT INTO customer_db.t_inquiry (customer_id,inquiry_datetime,inquiry_contents,reply_contents,status_code)
+    VALUES ('1','2023/08/01 12:00:00.0','テスト１','テスト１','00');
 
-INSERT INTO customer_db.t_inquiry (customer_id,inquiry_contents,reply_contents,status_code)
-    VALUES ('2','   テスト２','テスト２','50');
+INSERT INTO customer_db.t_inquiry (customer_id,inquiry_datetime,inquiry_contents,reply_contents,status_code)
+    VALUES ('2','2023/08/02 12:00:00.0','テスト２','テスト２','50');
+
 
