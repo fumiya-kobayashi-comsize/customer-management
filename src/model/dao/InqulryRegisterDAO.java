@@ -58,35 +58,6 @@ public class InqulryRegisterDAO {
 	}
 
 
-
-	/**
-	 * 問合せ情報を返します。
-	 * @return 問合せ情報
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
-	 */
-
-	public int selectId(int customerId) throws SQLException, ClassNotFoundException {
-
-		String sql = "SELECT inquiry_id FROM t_inquiry WHERE customer_id = ?";
-		int inquiryId = 0;
-
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);) {
-			// プレースホルダへの値の設定
-			pstmt.setInt(1, customerId);
-
-			// SQLステートメントの実行
-			ResultSet res = pstmt.executeQuery();
-
-			while (res.next()) {
-				customerId  = res.getInt("customer_id");
-			}
-		}
-		return customerId;
-	}
-
-
 	/**
 	 * カスタマーリストを返します。
 	 * @param なし

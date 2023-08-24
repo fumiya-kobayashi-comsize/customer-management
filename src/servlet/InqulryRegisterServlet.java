@@ -107,7 +107,7 @@ public class InqulryRegisterServlet extends HttpServlet {
 
 			try {
 				inquryinsertCount = inqulryDao.insert(inqulryregisterBean);//登録処理
-				inqulryregisterBean.setInquiryId(inqulryDao.selectId(inqulryregisterBean.getCustomerId()));
+
 				} catch (SQLException | ClassNotFoundException e) {
 					e.printStackTrace();
 				}
