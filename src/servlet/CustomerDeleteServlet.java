@@ -61,10 +61,10 @@ public class CustomerDeleteServlet extends HttpServlet {
 				//customerIdを取得
 				customerBean = detailDao.detail(Integer.parseInt(request.getParameter("CustomerId")));
 
+				//外部キーの削除処理
+				processingNumber =dao.foreignDelete(Integer.parseInt(request.getParameter("CustomerId")));
 
-				processingNumber = dao.foreignDelete(Integer.parseInt(request.getParameter("CustomerId")));
-
-				// 削除処理
+				//主キーの削除処理
 				processingNumber = dao.deleteCustmor(Integer.parseInt(request.getParameter("CustomerId")));
 
 				} catch (SQLException | ClassNotFoundException e) {
