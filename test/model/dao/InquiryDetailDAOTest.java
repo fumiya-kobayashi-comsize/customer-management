@@ -99,7 +99,7 @@ class InquiryDetailDAOTest {
 			statusList = dao.statusList();
 			//読み込みファイルのインスタンス生成
 			//ファイル名を指定する
-			fi = new FileInputStream("t_inquiry.csv");
+			fi = new FileInputStream("inquiryDetailStatusList.csv");
 			is = new InputStreamReader(fi);
 			br = new BufferedReader(is);
 
@@ -107,18 +107,18 @@ class InquiryDetailDAOTest {
 			String line;
 
 			//読み込み行数の管理
-			int i = 3;
+			int i = 0;
 
 			//1行ずつ読み込みを行う
 			while ((line = br.readLine()) != null) {
 
 				//先頭行は列名
-				if (i != 3) {
+				if (i != 0) {
 					//カンマで分割した内容を配列に格納する
 					String[] data = line.split(",");
 
-					assertEquals(data[0], statusList.get(i).getStatusCode());
-					assertEquals(data[1], statusList.get(i).getStatusName());
+					assertEquals(data[0], statusList.get(i - 1).getStatusCode());
+					assertEquals(data[1], statusList.get(i - 1).getStatusName());
 				}
 
 				//行数のインクリメント
