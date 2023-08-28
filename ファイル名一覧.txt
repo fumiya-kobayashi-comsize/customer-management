@@ -1,0 +1,34 @@
+＊ログイン
+	login.jsp：ログイン画面表示
+	LoginServlet.java：ログイン処理を行うコントロールクラス
+	LoginDAO.java：ユーザー情報にアクセスするDAOクラス
+	
+＊メニュー
+	menu.jsp：メニュー画面表示
+	logout.jsp：ログアウト画面表示
+
+＊登録
+	register.jsp：登録画面表示
+	RegisterServlet.java：顧客情報の登録処理を行うコントロールクラス
+	RegisterDAO.java：顧客情報にアクセスするDAOクラス
+	register-success.jsp：登録成功画面の表示
+	register-failure.jsp：登録失敗画面の表示
+	
+＊編集
+	customer-list.jsp：顧客情報一覧を表示
+	customer-update.jsp：顧客情報編集画面の表示
+	CustomerUpdateServlet.java：編集処理を行うコントロールクラス
+	UpdateDAO.java：顧客情報にアクセスするDAOクラス
+	update-success.jsp：編集完了画面の表示
+	update-failure.jsp：編集失敗画面の表示
+	
+＊削除
+	customer-delete-confirm.jsp：削除確認画面の表示
+	CustomerDeleteServlet.java：削除処理を行うコントロールクラス
+	DeleteDAO.java：顧客情報にアクセスするDAOクラス
+	delete-success.jsp：削除成功画面の表示
+	delete-failure.jsp：削除失敗画面の表示
+
+＊Bean
+	CustomerBean.java：顧客情報一覧を作成するための情報を保持
+	UserBean.java：ログインIDとパスワードを保持

@@ -1,0 +1,4 @@
+customer_id,customer_name,customer_name_kana,postal_code,address,area_code,area_name,contact_person_name,contact_name_kana,contact_person_tel,user_id,user_name
+1,会社A,かいしゃえー,175-0082,東京都板橋区,A300,西東京,担当者A,たんとうしゃえー,08012345678,91011,鈴木
+2,会社B,かいしゃびー,154-0012,東京都世田谷区,A200,東東京,担当者B,たんとうしゃびー,08056781234,5678,田中
+

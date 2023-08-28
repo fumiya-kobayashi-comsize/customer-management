@@ -1,0 +1,4 @@
+status_code,status_name
+00,未対応
+50,確認依頼中
+99,対応完了
